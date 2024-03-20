@@ -29,7 +29,7 @@ jobs:
       # Use uipcli to package and deploy (for each project.json found)                           
       - name: Pack and Deploy
         run: |
-                foreach($package in Get-ChildItem -Path ${{ github.workspace }} -Recurse -Filter project.json -File)
+                foreach($package in Get-ChildItem -Path "C:\Users\victor.vieira\actions-runner\_work\CitadelPipeline\CitadelPipeline" -Recurse -Filter project.json -File)
                        {    
                           # Get some data from the package.json for package naming
                           $json = Get-Content "$package" | Out-String | ConvertFrom-Json
@@ -37,6 +37,7 @@ jobs:
                           $Name=$json.name
                           echo "::set-output name=PATH::$package"
                           echo $foo
+                          echo $package
                           $v= [version] "$foo"
                           $newversion= "{0}.{1}.{2}.{3}" -f $v.Major, $v.Minor, ($v.Build),"${{github.run_number}}"
                           $VERSION=[string]$newversion
