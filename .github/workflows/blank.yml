@@ -4,7 +4,7 @@ on:
     branches: [ main ]
 jobs:
  remove-old-artifacts:
-    runs-on: [ self-hosted, gcp, windows-2019, windows-large ]
+    runs-on: [self-hosted]
     timeout-minutes: 10
     steps:
     - name: Remove old artifacts
