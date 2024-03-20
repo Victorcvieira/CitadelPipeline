@@ -43,7 +43,7 @@ jobs:
                           $VERSION=[string]$newversion
                           echo $VERSION
                           echo $Name
-                          echo ${{ github.workspace }}\$Name.$VERSION.nupkg
+                          echo "C:\Users\victor.vieira\actions-runner\_work\CitadelPipeline\$Name.$VERSION.nupkg"
                           # Build and Deploy the Package
                           & "C:\\uipathcli\\tools\\uipcli.exe" package pack "$package" -o "C:\Users\victor.vieira\actions-runner\_work\CitadelPipeline" -v $VERSION -l en-US
                           & "C:\\uipathcli\\tools\\uipcli.exe" package deploy "C:\Users\victor.vieira\actions-runner\_work\CitadelPipeline\$($Name).$VERSION.nupkg" "https://staging.uipath.com/" "${{secrets.TENANT_NAME}}" -A ${{secrets.ACCOUNT_NAME}} -I ${{secrets.OAUTH_CLIENT_ID}} -S "${{secrets.OAUTH_CLIENT_SECRET}}" -o "${{secrets.ORCH_FOLDER}}" --applicationScope "${{secrets.OAUTH_CLIENT_SCOPES}}"
