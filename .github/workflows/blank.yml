@@ -12,7 +12,7 @@ jobs:
       with:
         age: '1 month'
  Build:
-    runs-on: windows-latest
+    runs-on: [self-hosted]
     needs: remove-old-artifacts
     steps:            
       # Checkout code from this repo
