@@ -18,12 +18,6 @@ jobs:
       # Checkout code from this repo
       - name: Checkout Code
         uses: actions/checkout@v2      
-      # Facilitate the UiPath CLI in the github artifacts
-      - name: Get UiPath CLI
-        run: |
-                 New-Item -Path "C:\\" -ItemType "directory" -Name "uipathcli";
-                 Invoke-WebRequest "https://uipath.pkgs.visualstudio.com/Public.Feeds/_apis/packaging/feeds/1c781268-d43d-45ab-9dfc-0151a1c740b7/nuget/packages/UiPath.CLI.Windows/versions/23.6.8581.19168/content" -OutFile "C:\\uipathcli\\cli.zip";
-                 Expand-Archive -LiteralPath "C:\\uipathcli\\cli.Zip" -DestinationPath "C:\\uipathcli";
       # Use uipcli to package and deploy (for each project.json found)                           
       - name: Pack and Deploy
         run: |
