@@ -28,7 +28,7 @@ jobs:
                   Expand-Archive -LiteralPath "C:\\uipathcli\\cli.Zip" -DestinationPath "C:\\uipathcli";  
                   } 
  Pack-deploy:
-     runs-on: [self-hosted]
+     runs-on: windows-latest
      needs: set-cli-package
      steps:
       - name: Pack and Deploy
